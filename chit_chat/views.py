@@ -31,7 +31,7 @@ def Logout(request):
 
 def Home(request):
     c = Chat.objects.all()
-    return render(request, "chit_chat/home.html", {'home': 'active', 'chat': c})
+    return render(request, "chit_chat/index.html", {'home': 'active', 'chat': c})
 
 def Post(request):
     if request.method == 'POST':
