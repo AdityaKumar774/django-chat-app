@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 
 from chat_app import settings
-from .models import chat
+from .models import Chat
 
 def Login(request):
     next = request.GET.get('next', '/home/')
