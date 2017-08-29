@@ -4,7 +4,7 @@ $('#chat-form').on('submit', function (event){
     $.ajax({
         url : '/post/',
         type : 'POST',
-        data : {msgbox : $ ('#chat-msg'.val())},
+        data : {msgbox : $('#chat-msg'.val())},
 
         success : function (json) {
             $('#chat-msg').val('');
@@ -15,3 +15,23 @@ $('#chat-form').on('submit', function (event){
     });
 });
 
+function getMessages() {
+    if(!scrolling){
+        $.get('/messages/', function (messages) {
+           $('#msg-list').html(messages);
+           var chatlist = document.getElementById('msg-list-div');
+           chatlist.scrollTop = chatlist.scrollHeight;
+        });
+    }
+    scrolling = false;
+}
+
+var scrolling = false;
+$(function(){
+    $('#msg-list-div').on('scroll', function(){
+        scrolling = true;
+    });
+    refreshTimer = setInterval(getMessages, 1000);
+});
+
+$
