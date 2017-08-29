@@ -10,10 +10,10 @@ from .models import Chat
 
 def Login(request):
     next = request.GET.get('next', '/home/')
-    if request.method == 'POST':
+    if request.method == "POST":
         username = request.POST['username']
         password = request.POST['password']
-        user = authenticate(username = username, password = password)
+        user = authenticate(username=username, password=password)
 
         if user is not None:
             if user.is_active:
@@ -34,7 +34,7 @@ def Home(request):
     return render(request, "chit_chat/index.html", {'home': 'active', 'chat': c})
 
 def Post(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         msg = request.POST.get('msgbox', None)
         c = Chat(user=request.user, message=msg)
         if msg != '':
