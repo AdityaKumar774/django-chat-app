@@ -34,4 +34,25 @@ $(function(){
     refreshTimer = setInterval(getMessages, 1000);
 });
 
-$
+$(document).ready(function(){
+    $('#send').attr('disabled', 'disabled');
+    $('#chat-msg').keyup(function () {
+        if($(this).val() != ''){
+            $('#send').removeAttr('disabled');
+        }
+        else{
+            $('#send').attr('disabled', 'disabled');
+        }
+    });
+});
+
+function getCookie(name) {
+    var cookieValue = null;
+    if(document.cookie && document.cookie != ''){
+        var cookies = document.cookie.split(';');
+        for(var i = 0; i < cookies.length; i++){
+            var cookie = jQuery.trim(cookies[i]);
+            
+        }
+    }
+}
