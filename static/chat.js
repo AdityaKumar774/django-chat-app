@@ -4,7 +4,7 @@ $('#chat-form').on('submit', function (event){
     $.ajax({
         url : '/post/',
         type : 'POST',
-        data : {msgbox : $('#chat-msg'.val())},
+        data : {msgbox : $('#chat-msg').val()},
 
         success : function (json) {
             $('#chat-msg').val('');
@@ -60,7 +60,7 @@ function getCookie(name) {
     }
     return cookieValue;
 }
-var csrftoken = getCookie(csrftoken);
+var csrftoken = getCookie('csrftoken');
 
 function csrfSafeMethod(method) {
     return(/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
